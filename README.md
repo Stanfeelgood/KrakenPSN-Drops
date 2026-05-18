@@ -1,9 +1,14 @@
 # KrakenPSN Drops
 
-Telegram Mini App — контейнеры, KP, студии, битвы за территории и PSN скидки.
+Telegram Mini App для открытия контейнеров, KP, студий и битв за территории.
 
-Полный референс: https://github.com/Stanfeelgood/KrakenPSN-Drops/blob/main/KrakenPSN-Drops.pdf (или загрузи PDF из чата).
+## Как запустить Frontend (Telegram Mini App)
+1. Открой https://htmlpreview.github.io/?https://github.com/Stanfeelgood/KrakenPSN-Drops/blob/main/index.html
 
-🚀 Запуск: открой index.html в браузере или через Telegram WebApp.
+## Backend (Production)
+cd backend
+npm install
+cp .env.example .env
+npm start
 
-Статус: MVP прототип по PDF (10 экранов).
+Telegram WebApp SDK уже подключён в index.html
