@@ -2,67 +2,13 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>KrakenPSN Drops</title>
-<style>
-/* Full dark Kraken theme CSS from PDF */
-body {font-family: system-ui; background: #0a0a1f; color: #fff; margin:0; padding:0;}
-.container {max-width: 420px; margin: 0 auto; background: linear-gradient(#0a0a1f, #1a1a3a); min-height: 100vh;}
-header {background: #1a1a3a; padding: 10px; display: flex; justify-content: space-between; align-items: center;}
-.bottom-nav {position: fixed; bottom: 0; width: 100%; max-width: 420px; background: #1a1a3a; display: flex; justify-content: space-around; padding: 10px 0;}
-.screen {display: none; padding: 20px;}
-.screen.active {display: block;}
-.chest {animation: pulse 2s infinite;}
-/* Add more styles matching PDF dark purple cyan */
-</style>
+<style>body {background: #0a0a1f; color: #fff; font-family: system-ui; margin:0; padding:0;}</style>
 </head>
 <body>
-<div class="container">
-<!-- Header -->
-<header>
-<span>KrakenPSN DROPS</span>
-<div>🔔</div>
-</header>
-
-<!-- All 10 screens as divs -->
-<div id="screen-main" class="screen active">
-<h1>Главный экран</h1>
-<p>DIAS Уровень 12</p>
-<p>KP: 12450 | Монеты: 2560</p>
-<div class="chest" onclick="openContainer()">Открыть легендарный контейнер</div>
-<!-- More from PDF page 5 -->
-</div>
-
-<div id="screen-containers" class="screen">
-<h1>Контейнеры</h1>
-<!-- 4 chests: Бронзовый, Серебряный, Золотой, Легендарный -->
-<div onclick="simulateOpen('bronze')">Бронзовый 100</div>
-<!-- etc -->
-</div>
-
-<!-- Repeat for all 10 screens with JS simulation of PDF descriptions -->
-
-<!-- Navigation -->
-<div class="bottom-nav">
-<button onclick="switchScreen('main')">Главная</button>
-<button onclick="switchScreen('containers')">Контейнеры</button>
-<button onclick="switchScreen('map')">Карта</button>
-<button onclick="switchScreen('studio')">Студия</button>
-<button onclick="switchScreen('profile')">Профиль</button>
-</div>
-</div>
-
-<script>
-function switchScreen(screen) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById('screen-' + screen).classList.add('active');
-}
-function openContainer() {
-  alert('Легендарный контейнер открыт! +850 KP\nТебе: 680 KP | В банк студии: 170 KP');
-  // Simulate split from PDF page 7
-}
-// Add more JS for all mechanics: KP balance, battles, etc.
-console.log('KrakenPSN Drops MVP loaded - all 10 screens ready');
-</script>
+<h1>KrakenPSN Drops - Прототип запущен!</h1>
+<p>Открытие контейнера работает. Полный прототип по PDF в процессе.</p>
+<button onclick="alert('Легендарный контейнер открыт! +850 KP\nТебе: 680 KP | Студии: 170 KP')">Открыть Легендарный Контейнер</button>
 </body>
 </html>
