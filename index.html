@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KrakenPSN Drops</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body { font-family: system-ui; background: linear-gradient(#0a0a2a, #1a0033); color: #fff; margin:0; padding:0; }
+        .screen { display: none; padding: 20px; }
+        .active { display: block; }
+        .nav { position: fixed; bottom: 0; width: 100%; background: #1a0033; display: flex; justify-content: space-around; padding: 10px 0; }
+        .nav button { background: none; border: none; color: #fff; font-size: 12px; }
+        .header { text-align: center; padding: 20px; background: rgba(0,0,0,0.5); }
+        .chest { font-size: 80px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>KrakenPSN Drops</h1>
+        <div>KP: <span id="kp">12450</span> | Монеты: <span id="coins">2560</span></div>
+    </div>
+
+    <!-- Главный экран -->
+    <div id="screen-main" class="screen active">
+        <h2>Главный экран</h2>
+        <div class="chest" onclick="openContainer()">🪄 Открыть легендарный контейнер</div>
+        <p>Событие недели: Глубины Кракена x2 KP</p>
+    </div>
+
+    <!-- Контейнеры -->
+    <div id="screen-containers" class="screen">
+        <h2>Контейнеры</h2>
+        <div style="display:flex; gap:20px; justify-content:center;">
+            <div onclick="simulateOpen('bronze')">Бронзовый 🪙 100</div>
+            <div onclick="simulateOpen('silver')">Серебряный 🪙 300</div>
+            <div onclick="simulateOpen('gold')">Золотой 🪙 600</div>
+            <div onclick="simulateOpen('legendary')">Легендарный 🪙 1200</div>
+        </div>
+    </div>
+
+    <!-- Добавь остальные экраны аналогично по PDF -->
+    <div id="screen-map" class="screen">
+        <h2>Карта территорий</h2>
+        <p>Битва North Zone VS Red Zone</p>
+        <button onclick="alert('Внесено 2450 KP в битву!')">Внести KP</button>
+    </div>
+
+    <div class="nav">
+        <button onclick="switchScreen('main')">🏠</button>
+        <button onclick="switchScreen('containers')">📦</button>
+        <button onclick="switchScreen('map')">🗺️</button>
+        <button onclick="switchScreen('studio')">🏛️</button>
+        <button onclick="switchScreen('profile')">👤</button>
+    </div>
+
+    <script>
+        function switchScreen(screen) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            const el = document.getElementById('screen-' + screen);
+            if (el) el.classList.add('active');
+            else alert('Экран в разработке по PDF (стр. 5-14)');
+        }
+
+        function openContainer() {
+            const kp = document.getElementById('kp');
+            let current = parseInt(kp.textContent);
+            kp.textContent = current + 850;
+            alert('🎉 Легендарный контейнер открыт! +850 KP (680 тебе, 170 в банк студии)');
+        }
+
+        function simulateOpen(type) {
+            alert('Открыт ' + type + ' контейнер! Получено KP. Переход в студию...');
+            switchScreen('map');
+        }
+
+        // Telegram WebApp init
+        window.Telegram.WebApp.ready();
+        console.log('🚀 KrakenPSN Drops запущен как Telegram Mini App');
+    </script>
+</body>
+</html>
